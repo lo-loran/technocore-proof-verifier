@@ -1,7 +1,4 @@
 # technocore-proof-verifier
-Verify Ed25519 signatures of Technocore JSON message receipts.
-# Technocore Proof Verifier
-
 A Python tool to independently verify Ed25519 signatures in Technocore JSON message receipts.
 
 ## Features
@@ -23,6 +20,8 @@ git clone https://github.com/lo-loran/technocore-proof-verifier.git
 cd technocore-proof-verifier
 python -m pip install cryptography
 ```
+The verifier supports any compatible Ed25519 did:key identity
+and does not require private keys or passphrases.
 
 ## Usage
 
