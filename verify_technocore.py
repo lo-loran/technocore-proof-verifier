@@ -10,8 +10,6 @@ from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 
 ALPHABET = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
-EXPECTED_DID = 'did:key:z6Mkgd3yeRxRPoUL8Q5V6GUjLAsHR7VjzSdBmm1rLcadDcVi'
-
 
 def b58decode(value):
     number = 0
@@ -76,7 +74,6 @@ def verify(path, expected_did=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('folder', nargs='?', default='preuves', type=Path)
-    parser.add_argument('--any-did', action='store_true', help='Accept other valid Ed25519 DIDs')
     args = parser.parse_args()
     if not args.folder.is_dir():
         print(f'Folder not found: {args.folder}', file=sys.stderr)
