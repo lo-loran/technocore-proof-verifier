@@ -89,7 +89,7 @@ def main():
     for path in paths:
         try:
             seq, did = verify(path, None if args.any_did else EXPECTED_DID)
-            print(f'OK   seq={seq}  {path.name}')
+            seq, did = verify(path, None)
             passed += 1
         except (OSError, ValueError, KeyError, TypeError, InvalidSignature) as exc:
             print(f'FAIL {path.name}: {type(exc).__name__}: {exc}')
