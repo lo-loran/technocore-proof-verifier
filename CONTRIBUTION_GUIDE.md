@@ -44,3 +44,23 @@ A successful local test proves that the verifier behaves as tested; it does not 
 This guide describes verification principles and the protocol format used by the project. Before relying on a receipt, check the current official protocol and use a maintained verifier with tests.
 
 A valid receipt is evidence of message integrity and key control, not proof of contribution quality or a promised reward.
+
+## Running the tests
+
+Python 3 and the `cryptography` package are required.
+
+From the repository root, install the dependency if needed:
+
+```bash
+python3 -m pip install cryptography
+```
+
+Run the test suite:
+
+```bash
+python3 -m unittest test_verify_technocore.py -v
+```
+
+The tests should report 8 successful tests. If `cryptography` is missing, install it in the same Python environment used to run the tests.
+
+These commands are examples; using a virtual environment is recommended to keep project dependencies isolated.
