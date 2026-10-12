@@ -55,6 +55,9 @@ def verify(path, expected_did=None):
         raise ValueError('Invalid signature encoding') from exc
     if len(signature_bytes) != 64:
         raise ValueError('Invalid Ed25519 signature length')
+    canonical_signature = base64.urlsafe_b64encode(signature_bytes).decode('ascii').rstrip('=')
+    if signature != canonical_signature:
+        raise ValueError('Non-canonical Base64URL signature encoding')
     payload = f'{room}|{nonce}|{content}'.encode('utf-8')
     Ed25519PublicKey.from_public_bytes(key[2:]).verify(signature_bytes, payload)
     # Check that the same message is present in the server-returned messages, if supplied.
